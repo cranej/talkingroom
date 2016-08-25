@@ -35,6 +35,7 @@ executable talkingroom
                      , transformers
                      , time
                      , scotty
+                     , text
                      , bytestring
                      , blaze-html
                      , wai-middleware-static
