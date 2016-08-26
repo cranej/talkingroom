@@ -13,8 +13,12 @@ import           Web.Scotty
 renderMarkdownFile :: FilePath -> IO Text
 renderMarkdownFile path = (renderHtml . markdownToHtml .unpack) <$> B.readFile path
 
+getPostFilePath :: String -> FilePath
+getPostFilePath s = "testdata/" ++ s ++ ".md"
+
 main :: IO ()
 main = scotty 3000 $ do
-    get "/" $ do
-        c <- liftIO . renderMarkdownFile $ "readme.md"
+    get "/:post" $ do
+        fname <- getPostFilePath <$> param "post" `rescue` (\err -> return "index")
+        c <- liftIO . renderMarkdownFile $ fname
         html c
