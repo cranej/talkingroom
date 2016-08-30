@@ -7,6 +7,7 @@ import qualified Data.ByteString               as B
 import           Data.ByteString.Char8         (pack, unpack)
 import           Data.Text.Lazy                (Text)
 import           Lib
+import Backend
 import           Text.Blaze.Html.Renderer.Text
 import           Web.Scotty
 
