@@ -29,10 +29,14 @@ executable talkingroom
                      , pandoc
                      , containers
                      , scotty
+                     --, scotty-tls
                      , text
                      , bytestring
                      , blaze-html
+                     , securemem
+                     , wai
                      , wai-middleware-static
+                     , wai-extra
 
   default-language:    Haskell2010
 

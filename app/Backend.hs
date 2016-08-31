@@ -20,10 +20,12 @@ import           Database.Persist.TH
 
 share [mkPersist sqlSettings, mkMigrate "migrateAll"] [persistLowerCase|
 Post
+    slug String
     title String
     content String
     createdDate UTCTime
     tags [String]
+    UniqueSlug slug
     deriving Show
 Tweet
     content String
@@ -33,3 +35,7 @@ Tweet
 
 getPost :: String -> IO Post
 getPost t = undefined
+
+getPostBySlug :: String -> IO Post
+getPostBySlug slug = undefined
+
